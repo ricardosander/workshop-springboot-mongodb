@@ -1,6 +1,6 @@
 package br.com.ricardosander.workshopspringbootmongodb.resources;
 
-import br.com.ricardosander.workshopspringbootmongodb.UserService;
+import br.com.ricardosander.workshopspringbootmongodb.services.UserService;
 import br.com.ricardosander.workshopspringbootmongodb.domain.User;
 import br.com.ricardosander.workshopspringbootmongodb.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;

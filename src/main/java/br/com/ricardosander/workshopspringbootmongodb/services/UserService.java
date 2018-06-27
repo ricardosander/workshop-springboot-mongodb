@@ -1,4 +1,4 @@
-package br.com.ricardosander.workshopspringbootmongodb;
+package br.com.ricardosander.workshopspringbootmongodb.services;
 
 import br.com.ricardosander.workshopspringbootmongodb.domain.User;
 import br.com.ricardosander.workshopspringbootmongodb.repository.UserRepository;
