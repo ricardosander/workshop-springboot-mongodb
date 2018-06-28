@@ -1,6 +1,7 @@
 package br.com.ricardosander.workshopspringbootmongodb.services;
 
 import br.com.ricardosander.workshopspringbootmongodb.domain.User;
+import br.com.ricardosander.workshopspringbootmongodb.dto.UserDTO;
 import br.com.ricardosander.workshopspringbootmongodb.repository.UserRepository;
 import br.com.ricardosander.workshopspringbootmongodb.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,10 @@ public class UserService {
     Optional<User> user = userRepository.findById(id);
 
     return user.orElseThrow(() -> new ObjectNotFoundException("User not found"));
+  }
+
+  public User insert(UserDTO userDTO) {
+    return userRepository.insert(User.from(userDTO));
   }
 
 }

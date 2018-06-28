@@ -1,5 +1,7 @@
 package br.com.ricardosander.workshopspringbootmongodb.domain;
 
+import br.com.ricardosander.workshopspringbootmongodb.dto.UserDTO;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -58,4 +60,9 @@ public class User implements Serializable {
 
     return Objects.hash(id);
   }
+
+  public static User from(UserDTO userDTO) {
+    return new User(userDTO.getId(), userDTO.getName(), userDTO.getEmail());
+  }
+
 }
