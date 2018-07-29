@@ -6,9 +6,12 @@ import java.io.Serializable;
 
 public class AuthorDTO implements Serializable {
 
-  private final String id;
+  private String id;
 
-  private final String name;
+  private String name;
+
+  public AuthorDTO() {
+  }
 
   public AuthorDTO(User user) {
     id = user.getId();
