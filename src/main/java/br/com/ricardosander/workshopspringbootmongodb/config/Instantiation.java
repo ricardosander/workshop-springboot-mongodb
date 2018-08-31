@@ -3,6 +3,7 @@ package br.com.ricardosander.workshopspringbootmongodb.config;
 import br.com.ricardosander.workshopspringbootmongodb.domain.Post;
 import br.com.ricardosander.workshopspringbootmongodb.domain.User;
 import br.com.ricardosander.workshopspringbootmongodb.dto.AuthorDTO;
+import br.com.ricardosander.workshopspringbootmongodb.dto.CommentDTO;
 import br.com.ricardosander.workshopspringbootmongodb.repository.PostRepository;
 import br.com.ricardosander.workshopspringbootmongodb.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,16 @@ public class Instantiation implements CommandLineRunner {
         "Vou viajar para São Paulo. Abraços.", new AuthorDTO(maria));
     Post post2 = new Post(null, dateFormat.parse("23/03/2018"), "Bom dia",
         "Acordei feliz hoje!", new AuthorDTO(maria));
+
+    CommentDTO comment1 =
+        new CommentDTO(new AuthorDTO(alex), "Boa viagem!!!", dateFormat.parse("22/03/2018"));
+    CommentDTO comment2 =
+        new CommentDTO(new AuthorDTO(bob), "Aproveita mano.", dateFormat.parse("12/04/2018"));
+   post1.getComments().addAll(Arrays.asList(comment1, comment2));
+
+    CommentDTO comment3 =
+        new CommentDTO(new AuthorDTO(alex), "Fico feliz por ti.", dateFormat.parse("24/03/2018"));
+    post2.getComments().add(comment3);
 
     postRepository.saveAll(Arrays.asList(post1, post2));
 
