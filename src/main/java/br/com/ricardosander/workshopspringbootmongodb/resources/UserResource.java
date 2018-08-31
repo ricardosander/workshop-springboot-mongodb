@@ -21,8 +21,12 @@ import java.util.stream.Collectors;
 @RequestMapping(value = "/users")
 public class UserResource {
 
+  private final UserService userService;
+
   @Autowired
-  private UserService userService;
+  public UserResource(UserService userService) {
+    this.userService = userService;
+  }
 
   @RequestMapping(method = RequestMethod.GET)
   public ResponseEntity<List<UserDTO>> findAll() {
